@@ -1,0 +1,1 @@
+java -Xms#10 -Xmx#10 -jar &"
