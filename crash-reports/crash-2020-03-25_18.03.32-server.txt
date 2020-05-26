@@ -1,0 +1,105 @@
+---- Minecraft Crash Report ----
+// I bet Cylons wouldn't have this problem.
+
+Time: 3/25/20, 6:03 PM
+Description: Exception generating new chunk
+
+java.util.ConcurrentModificationException
+	at java.base/java.util.HashMap.computeIfAbsent(HashMap.java:1134)
+	at cmo.b(SourceFile:67)
+	at cmo.a(SourceFile:57)
+	at clq$a.a(SourceFile:102)
+	at clq$a.<init>(SourceFile:82)
+	at clq.a(SourceFile:67)
+	at cfc$a.a(SourceFile:65)
+	at caa.a(SourceFile:199)
+	at cae.d(SourceFile:51)
+	at cae.a(SourceFile:214)
+	at wp.a(SourceFile:549)
+	at com.mojang.datafixers.util.Either$Left.map(Either.java:38)
+	at wp.a(SourceFile:543)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072)
+	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478)
+	at wr.b(SourceFile:58)
+	at aiv.e(SourceFile:83)
+	at aiv.a(SourceFile:123)
+	at aiv.run(SourceFile:91)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1426)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:177)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at java.base/java.util.HashMap.computeIfAbsent(HashMap.java:1134)
+	at cmo.b(SourceFile:67)
+	at cmo.a(SourceFile:57)
+	at clq$a.a(SourceFile:102)
+	at clq$a.<init>(SourceFile:82)
+	at clq.a(SourceFile:67)
+	at cfc$a.a(SourceFile:65)
+	at caa.a(SourceFile:199)
+	at cae.d(SourceFile:51)
+	at cae.a(SourceFile:214)
+
+-- Chunk to be generated --
+Details:
+	Location: -30,-90
+	Position hash: -382252089374
+	Generator: cca@22dab26d
+Stacktrace:
+	at wp.a(SourceFile:549)
+	at com.mojang.datafixers.util.Either$Left.map(Either.java:38)
+	at wp.a(SourceFile:543)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072)
+	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478)
+	at wr.b(SourceFile:58)
+	at aiv.e(SourceFile:83)
+	at aiv.a(SourceFile:123)
+	at aiv.run(SourceFile:91)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1426)
+
+-- Affected level --
+Details:
+	All players: 4 total; [xe['OerllydSaethwr'/100, l='world', x=-31.25, y=200.00, z=-760.53], xe['AndruBoss'/320, l='world', x=-208.09, y=69.94, z=-1453.43], xe['BBOli'/584, l='world', x=-146.91, y=44.00, z=-776.84], xe['douglas11'/630, l='world', x=-153.30, y=26.00, z=-752.51]]
+	Chunk stats: ServerChunkCache: 6168
+	Level dimension: minecraft:overworld
+	Level name: world
+	Level seed: 4977154887074266999
+	Level generator: ID 00 - default, ver 1. Features enabled: true
+	Level generator options: {}
+	Level spawn location: World: (240,67,-176), Chunk: (at 0,4,0 in 15,-11; contains blocks 240,0,-176 to 255,255,-161), Region: (0,-1; contains chunks 0,-32 to 31,-1, blocks 0,0,-512 to 511,255,-1)
+	Level time: 1231860 game time, 1348939 day time
+	Known server brands: vanilla
+	Level was modded: false
+	Level storage version: 0x04ABD - Anvil
+	Level weather: Rain time: 1 (now: false), thunder time: 1 (now: false)
+	Level game mode: Game mode: survival (ID 0). Hardcore: false. Cheats: false
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.b(SourceFile:857)
+	at wd.b(SourceFile:347)
+	at net.minecraft.server.MinecraftServer.a(SourceFile:793)
+	at net.minecraft.server.MinecraftServer.run(SourceFile:655)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.15.2
+	Minecraft Version ID: 1.15.2
+	Operating System: Linux (amd64) version 4.15.0-91-generic
+	Java Version: 11.0.6, Ubuntu
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Ubuntu
+	Memory: 2258514408 bytes (2153 MB) / 4294967296 bytes (4096 MB) up to 4294967296 bytes (4096 MB)
+	CPUs: 4
+	JVM Flags: 2 total; -Xms4G -Xss1G
+	Player Count: 4 / 20; [xe['OerllydSaethwr'/100, l='world', x=-31.25, y=200.00, z=-760.53], xe['AndruBoss'/320, l='world', x=-208.09, y=69.94, z=-1453.43], xe['BBOli'/584, l='world', x=-146.91, y=44.00, z=-776.84], xe['douglas11'/630, l='world', x=-153.30, y=26.00, z=-752.51]]
+	Data Packs: vanilla
+	Is Modded: Unknown (can't tell)
+	Type: Dedicated Server (map_server.txt)
